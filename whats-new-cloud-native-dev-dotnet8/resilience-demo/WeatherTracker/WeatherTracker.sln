@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34309.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherTracker.Api", "WeatherTracker.Api\WeatherTracker.Api.csproj", "{F3191685-1CF9-4095-ABB9-EEEA4E7B531C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherTracker.Console", "WeatherTracker.Console\WeatherTracker.Console.csproj", "{90F6D908-B1CD-4678-92E0-A8DD1373D02D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F3191685-1CF9-4095-ABB9-EEEA4E7B531C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3191685-1CF9-4095-ABB9-EEEA4E7B531C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3191685-1CF9-4095-ABB9-EEEA4E7B531C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3191685-1CF9-4095-ABB9-EEEA4E7B531C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90F6D908-B1CD-4678-92E0-A8DD1373D02D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90F6D908-B1CD-4678-92E0-A8DD1373D02D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90F6D908-B1CD-4678-92E0-A8DD1373D02D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90F6D908-B1CD-4678-92E0-A8DD1373D02D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C492298B-6144-4238-BC5F-07BCB04378BF}
+	EndGlobalSection
+EndGlobal
