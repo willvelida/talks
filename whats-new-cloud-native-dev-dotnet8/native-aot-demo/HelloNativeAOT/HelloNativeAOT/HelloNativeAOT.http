@@ -1,0 +1,6 @@
+@HelloNativeAOT_HostAddress = http://localhost:5286
+
+GET {{HelloNativeAOT_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
