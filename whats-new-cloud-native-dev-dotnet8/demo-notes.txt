@@ -1,0 +1,57 @@
+Telemetry Notes
+
+- view metrics with dotnet-counters
+
+dotnet counters is a CLI tool that can view live metrics for .NET Core apps on demand.
+It works with both System.Diagnostics.Metrics based APIs and Event Counters.
+
+To install
+
+dotnet tool update -g dotnet-counters
+
+Launch the app, then launch dotnet counters:
+
+dotnet-counters monitor -n WebMetric --counters Microsoft.AspNetCore.Hosting
+
+We can also create metrics in ASP.NET Core with IMeterFactory. This will be registered by in DI by default, making isolating
+and collecting metrics easy.
+
+IMeterFactory is also useful for testing.
+
+Show type that uses IMeterFactory
+
+To monitor the custom metric meter, run the following:
+
+dotnet-counters monitor -n WebMetric --counters WebMetric.Shop
+
+PROMETHEUS AND GRAFANA DEMO
+
+The ASP.NET Core metric APIs record measurements from the example app.
+
+The OpenTelemetry .NET library running in the app aggregates the measurements.
+
+The Prometheus exporter library makes the aggregated data available via an HTTP metrics endpoint. 'Exporter' is what OpenTelemetry calls the libraries that transmit telemetry to vendor-specific backends.
+
+A Prometheus server:
+
+Polls the metrics endpoint
+Reads the data
+Stores the data in a database for long-term persistence. Prometheus refers to reading and storing data as scraping an endpoint.
+Can run on a different machine
+
+The Grafana server:
+
+Queries the data stored in Prometheus and displays it on a web-based monitoring dashboard.
+Can run on a different machine.
+
+Run the app and hit the /metrics endpoint to view the metrics endpoint and see it being collected.
+
+Navigate to prometheus directory and show yml file. Show the job name that has been added and points to your ASP.NET app:
+
+In Prometheus, go to Status > Target to show ASP.NET app target.
+
+Go to Metric Explorer icon (globe) to see available metrics. Make some requests, and then type http_ to see HTTP requests.
+
+Go to Grafana, and show dashboards.
+
+To view imported dashboards, go here: https://grafana.com/orgs/dotnetteam

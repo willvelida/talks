@@ -1,0 +1,11 @@
+@TodoNativeAotSample_HostAddress = http://localhost:5216
+
+GET {{TodoNativeAotSample_HostAddress}}/todos/
+Accept: application/json
+
+###
+
+GET {{TodoNativeAotSample_HostAddress}}/todos/1
+Accept: application/json
+
+###

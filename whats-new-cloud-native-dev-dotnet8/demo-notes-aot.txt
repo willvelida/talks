@@ -1,0 +1,37 @@
+Open up app and show code
+
+
+Native AOT is enabled with the PublishAot MSBuild property. The following example shows how to enable native AOT in a project file:
+
+XML
+
+Copy
+<PropertyGroup>
+  <PublishAot>true</PublishAot>
+</PropertyGroup>
+
+
+This setting enables native AOT compilation during publish and enables dynamic code usage analysis during build and editing. A project that uses native AOT publishing uses JIT compilation when running locally. An AOT app has the following differences from a JIT-compiled app:
+
+Features that aren't compatible with native AOT are disabled and throw exceptions at run time.
+A source analyzer is enabled to highlight code that isn't compatible with native AOT. At publish time, the entire app, including NuGet packages, are analyzed for compatibility again.
+
+
+The ASP.NET Core Web API (native AOT) template (short name webapiaot) creates a project with AOT enabled. The template differs from the Web API project template in the following ways:
+
+Uses minimal APIs only, as MVC isn't yet compatible with native AOT.
+Uses the CreateSlimBuilder() API to ensure only the essential features are enabled by default, minimizing the app's deployed size.
+Is configured to listen on HTTP only, as HTTPS traffic is commonly handled by an ingress service in cloud-native deployments.
+Doesn't include a launch profile for running under IIS or IIS Express.
+Creates an .http file configured with sample HTTP requests that can be sent to the app's endpoints.
+Includes a sample Todo API instead of the weather forecast sample.
+Adds PublishAot to the project file, as shown earlier in this article.
+Enables the JSON serializer source generators. The source generator is used to generate serialization code at build time, which is required for native AOT compilation.
+
+No IIS profile in launch settings
+
+run dotnet publish in project directory
+
+show dir bin
+
+run executable
