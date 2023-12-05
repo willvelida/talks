@@ -2,6 +2,9 @@
 
 namespace WebMetric
 {
+    /// <summary>
+    /// This class uses IMeterFactory that creates the app metrics
+    /// </summary>
     public class CustomMetrics
     {
         private readonly Counter<int> _productSoldCounter;
