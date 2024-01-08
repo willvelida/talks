@@ -120,11 +120,11 @@ resource env 'Microsoft.App/managedEnvironments@2023-08-01-preview' = {
   }
 }
 
-resource storageDaprComponent 'Microsoft.App/managedEnvironments/daprComponents@2023-08-01-preview' = {
-  name: 'storagecomponent'
+resource storageBindingComponent 'Microsoft.App/managedEnvironments/daprComponents@2023-08-01-preview' = {
+  name: 'storagebinding'
   parent: env
   properties: {
-    componentType: 'state.azure.blobstorage'
+    componentType: 'bindings.azure.blobstorage'
     version: 'v1'
     metadata: [
       {
@@ -147,11 +147,11 @@ resource storageDaprComponent 'Microsoft.App/managedEnvironments/daprComponents@
   }
 }
 
-resource queueDaprComponent 'Microsoft.App/managedEnvironments/daprComponents@2023-08-01-preview' = {
-  name: 'queuecomponent'
+resource queuePubSubComponent 'Microsoft.App/managedEnvironments/daprComponents@2023-08-01-preview' = {
+  name: 'queuepubsub'
   parent: env
   properties: {
-    componentType: 'pubsub.azure.servicebus.queues'
+    componentType: 'pubsub.azure.servicebus.queue'
     version: 'v1'
     metadata: [
       {
