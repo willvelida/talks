@@ -23,17 +23,7 @@ app.MapGet("/RequestStatus/{blobGuid}", async (HttpRequest req, string blobGuid)
         switch (onComplete)
         {
             case OnCompleteEnum.Redirect:
-                BlobSasBuilder blobSasBuilder = new BlobSasBuilder
-                {
-                    BlobContainerName = blobClient.BlobContainerName,
-                    BlobName = blobClient.Name,
-                    Resource = "b",
-                    StartsOn = DateTimeOffset.Now,
-                    ExpiresOn = DateTimeOffset.UtcNow.AddMinutes(10)
-                }; ;
-                blobSasBuilder.SetPermissions(BlobAccountSasPermissions.Read);
-                Uri sasUri = blobClient.GenerateSasUri(blobSasBuilder);
-                return Results.Ok(sasUri.ToString());
+                return OnCompleted(blobClient);
             case OnCompleteEnum.Stream:
                 return Results.Ok(await blobClient.DownloadContentAsync());
             default:
@@ -55,18 +45,31 @@ app.MapGet("/RequestStatus/{blobGuid}", async (HttpRequest req, string blobGuid)
                 }
                 if (await blobClient.ExistsAsync())
                 {
-
+                    return OnCompleted(blobClient);
                 }
                 else
                 {
                     return Results.NotFound();
                 }
-                break;
             default:
                 throw new InvalidOperationException($"Unexpected value: {OnPending}");
         }
     }
-    return Results.Ok();
 });
 
 app.Run();
+
+static IResult OnCompleted(BlobClient blobClient)
+{
+    BlobSasBuilder blobSasBuilder = new BlobSasBuilder
+    {
+        BlobContainerName = blobClient.BlobContainerName,
+        BlobName = blobClient.Name,
+        Resource = "b",
+        StartsOn = DateTimeOffset.Now,
+        ExpiresOn = DateTimeOffset.UtcNow.AddMinutes(10)
+    }; ;
+    blobSasBuilder.SetPermissions(BlobAccountSasPermissions.Read);
+    Uri sasUri = blobClient.GenerateSasUri(blobSasBuilder);
+    return Results.Ok(sasUri.ToString());
+}

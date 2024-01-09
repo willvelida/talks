@@ -25,7 +25,7 @@ param storageAccountName string = 'sa${applicationName}'
 var queueName = 'outqueue'
 var enqueueMessage = 'enqueuemessage'
 var receiveMessage = 'receviemessage'
-var blobChecker = 'blockchecker'
+var blobChecker = 'blobchecker'
 
 resource logAnalytics 'Microsoft.OperationalInsights/workspaces@2022-10-01' = {
   name: logAnalyticsWorkspaceName
