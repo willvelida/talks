@@ -1,5 +1,4 @@
 // Only minimal apis are supported at this time!
-
 using System.Text.Json.Serialization;
 
 // These ensures that only the essential features are enabled by default, minimizing the app's deployed code

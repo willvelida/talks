@@ -16,15 +16,15 @@ var summaries = new[]
 app.MapGet("/weatherforecast", async (CancellationToken cancellationToken) =>
 {
     // Add these in to cause Mayhem!!!
-    //if (Random.Shared.NextDouble() < 0.2)
-    //{
-    //    await Task.Delay(5000, cancellationToken);
-    //}
+    if (Random.Shared.NextDouble() < 0.2)
+    {
+        await Task.Delay(5000, cancellationToken);
+    }
 
-    //if (Random.Shared.NextDouble() < 0.3)
-    //{
-    //    throw new InvalidOperationException("Something went wrong");
-    //}
+    if (Random.Shared.NextDouble() < 0.3)
+    {
+        throw new InvalidOperationException("Something went wrong");
+    }
 
     var forecast = Enumerable.Range(1, 5).Select(index =>
         new WeatherForecast
