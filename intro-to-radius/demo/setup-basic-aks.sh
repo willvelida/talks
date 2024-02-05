@@ -1,5 +1,5 @@
 # Create the basic AKS Cluster
-az aks create --subscription <subscription-id> --resource-group <resource-group-name> --name <aks-cluster-name> --location <azure-region> --node-count 1
+az aks create --resource-group rg-radius --name wvaksrad --location australiaeast --node-count 1
 
 # Get credentials for your AKS cluster
-az aks get-credentials --subscription <subscription-id> --resource-group <resource-group-name> --name <aks-cluster-name>
+az aks get-credentials --resource-group rg-radiusdemo --name aksradwv
