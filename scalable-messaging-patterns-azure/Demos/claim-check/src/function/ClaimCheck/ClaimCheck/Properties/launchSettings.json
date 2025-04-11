@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "ClaimCheck": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7171",
+      "launchBrowser": false
+    }
+  }
+}
